@@ -30,7 +30,6 @@ class Yanardag_download_tool:
             "TR": {
                 "title": "YANARDAĞ OTONOM SİSTEM",
                 "label": "Video/Ses Linkini Girin:",
-                "ai_badge": "Bu uygulama Bypass AI ile güçlendirilmiştir",
                 "quality_label": "Kalite:",
                 "v_sec": "VİDEO (Masaüstü/My Videos)",
                 "a_sec": "SES (Masaüstü/My Music)",
@@ -48,7 +47,6 @@ class Yanardag_download_tool:
             "EN": {
                 "title": "YANARDAG AUTONOMOUS SYSTEM",
                 "label": "Paste Video/Audio Link:",
-                "ai_badge": "This application is powered by Bypass AI",
                 "quality_label": "Quality:",
                 "v_sec": "VIDEO (Desktop/My Videos)",
                 "a_sec": "AUDIO (Desktop/My Music)",
@@ -93,7 +91,6 @@ class Yanardag_download_tool:
             url = "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe"
             urllib.request.urlretrieve(url, self.ytdlp_path)
 
-        
         ffmpeg_exe = os.path.join(self.ffmpeg_bin, "ffmpeg.exe")
         if not os.path.exists(ffmpeg_exe):
             self.update_status(self.texts[self.lang]["ffmpeg_install"], "#f1c40f")
@@ -111,7 +108,6 @@ class Yanardag_download_tool:
                 self.update_status(f"FFmpeg hatası: {e}", "#ff0000")
                 return
 
-        
         try:
             subprocess.run([self.ytdlp_path, "-U"], creationflags=0x08000000, timeout=30)
         except:
@@ -136,16 +132,6 @@ class Yanardag_download_tool:
 
         tk.Label(self.root, text=self.texts[self.lang]["title"],
                  font=("Impact", 28), bg="#050505", fg="#ff0000").pack(pady=15)
-
-        ai_band = tk.Frame(self.root, bg="#0d0d0d", pady=5)
-        ai_band.pack(fill="x")
-        self.ai_badge_lbl = tk.Label(
-            ai_band,
-            text=self.texts[self.lang]["ai_badge"],
-            bg="#0d0d0d", fg="#00e5ff",
-            font=("Consolas", 9, "bold")
-        )
-        self.ai_badge_lbl.pack()
 
         self.link_label = tk.Label(self.root, text=self.texts[self.lang]["label"],
                                    bg="#050505", fg="#777")
@@ -212,7 +198,6 @@ class Yanardag_download_tool:
         self.v_lbl.config(text=self.texts[self.lang]["v_sec"])
         self.a_lbl.config(text=self.texts[self.lang]["a_sec"])
         self.link_label.config(text=self.texts[self.lang]["label"])
-        self.ai_badge_lbl.config(text=self.texts[self.lang]["ai_badge"])
         self.quality_lbl.config(text=self.texts[self.lang]["quality_label"])
         self.quality_combo.config(values=self.texts[self.lang]["qualities"])
         self.quality_combo.current(0)
