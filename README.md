@@ -1,5 +1,5 @@
 # Yanarda-video-indirici
-yt-dlp tabanlı, çoklu platform destekli, açık kaynaklı medya indirme ve arşivleme arayüzü.
+pytubefix tabanlı, YouTube için açık kaynaklı medya indirme ve arşivleme arayüzü.
 
 Merhaba kullanıcı
 sana bu uygulamayı yüklediğin için derinden teşekkür ederim
